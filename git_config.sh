@@ -16,8 +16,8 @@ if [ ! -d ./.git ] ; then
       read -p "Email: " email
       git config user.email $email
 
-      read -p "Nome da chave ssh: " ssh
-      git config core.sshCommand "ssh -o ~/.ssh/$ssh -i IdentitiesOnly=yes"
+      # read -p "Nome da chave ssh: " ssh
+      # git config core.sshCommand "ssh -o ~/.ssh/$ssh -i IdentitiesOnly=yes"
       echo "Repositorio local criado com sucesso"
       ;;
     
