@@ -46,4 +46,5 @@ cp $dirComAsChaves/* -t $dirSSH
 chmod 600 $dirSSH/*
 # Altera as permissões das chaves publicas para q sejam visiveis a todos os usuarios
 chmod 664 $dirSSH/*.pub
+clear
 echo "Chaves copiadas com sucesso para $dirSSH"

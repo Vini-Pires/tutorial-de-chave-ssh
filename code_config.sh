@@ -31,3 +31,6 @@ mv $vscode/copia.json.bkp $vscode/extensions.json
 mv $vscode/ext* -t ~/.vscode/ext*
 mv $vscode/aux/ext* -t $vscode
 rmdir $vscode/aux 
+clear
+
+echo "Configurações copiadas com sucesso"
