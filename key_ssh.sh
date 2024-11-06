@@ -1,18 +1,6 @@
-# Coleta o RA do usuario
-read -p "Informe os numeros do seu RA: " RegAlun
-
-# Verifica se o RA esta digitado corretamente
-if [ ! -d $homePessoal ] ; then
-  echo
-  echo "==========================================="
-  echo "RA incorreto, verifique seu RA e tente novamente"
-  echo "Registro de Aluno: $RA ?"
-  echo "==========================================="
-  echo
-  return 1
-fi
-
-homePessoal=/media/a$RegAlun/home
+# Comando whoami retorna o nome do usuario e preciso dele para deternimar os caminhos de forma automatica
+RegAlun=$(whoami)
+homePessoal=/media/$RegAlun/home
 dirComAsChaves=$homePessoal/.ssh
 dirSSH=~/.ssh
 
@@ -46,5 +34,4 @@ cp $dirComAsChaves/* -t $dirSSH
 chmod 600 $dirSSH/*
 # Altera as permissões das chaves publicas para q sejam visiveis a todos os usuarios
 chmod 664 $dirSSH/*.pub
-clear
 echo "Chaves copiadas com sucesso para $dirSSH"

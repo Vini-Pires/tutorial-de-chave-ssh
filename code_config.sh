@@ -1,18 +1,6 @@
-# Coleta o RA do usuario
-read -p "Informe os numeros do seu RA: " RegAlun
-
-# Verifica se o RA esta correto
-if [ ! -d $homePessoal ] ; then
-  echo
-  echo "====================================="
-  echo "RA incorreto, verifique seu RA e execute novamente o script"
-  echo "RA informado: $RegAlun"
-  echo "====================================="
-  echo
-  return 1
-fi
-
-homePessoal=/media/a$RegAlun/home
+# Comando whoami retorna o nome do usuario e preciso dele para deternimar os caminhos de forma automatica
+RegAlun=$(whoami)
+homePessoal=/media/$RegAlun/home
 vscode=$homePessoal/.vscode
 settingsVscode=~/.config/Code/User
 
@@ -31,6 +19,5 @@ mv $vscode/copia.json.bkp $vscode/extensions.json
 mv $vscode/ext* -t ~/.vscode/ext*
 mv $vscode/aux/ext* -t $vscode
 rmdir $vscode/aux 
-clear
 
 echo "Configurações copiadas com sucesso"
