@@ -28,6 +28,7 @@ if [ -n "$(ls -A $dirSSH)"] ; then
   chmod 664 $dirSSH
 fi
 
+chmod 764 $dirSSH
 # Copia as chaves da sua .ssh remota para a .ssh do linux
 cp $dirComAsChaves/* -t $dirSSH
 # Altera as permissões de todos os arquivos dentro da .ssh do linux para que somente quem criou possa visualizar
